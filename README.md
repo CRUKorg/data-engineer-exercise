@@ -38,8 +38,6 @@ At CRUK, we mainly use Snowflake as our Data Warehouse, with supporting technolo
 
 For this exercise we are ideally looking for an implementation that aligns with the technologies above.  If you wish to use Snowflake, a free trial Snowflake account can be obtained at https://signup.snowflake.com/   Alternatively you may also use a database running locally such as SQL Server Express, PostgreSQL, etc.
 
-We would prefer a solution that uses SQL for the query/analysis section, however if using any database is problematic given the tech/devices you currently have access to, then this exercise can also be attempted using pure Python, however please describe in the `README.md` in pseudo-SQL the query that you would write for the query/analysis part of the exercise.
-
 We are not expecting use of the AWS CDK in this exercise.
 
 We will not penalise a solution that runs locally without using any cloud technologies, but please include notes in the `README.md` file explaining how you would move your workload into cloud services such as Snowflake and AWS, with some thoughts on how your implementation will scale.
@@ -56,11 +54,12 @@ Write code to perform the following tasks:
 
   * Read/ingest the data from the NYC yellow taxi file.
   * You should ideally only ingest the columns needed to answer the exercise question.
-  * If using a database, please include your table definition in a file named `table.sql`.
+  * If you are using a DW / database that supports reading the data file directly (e.g. Snowflake) then we would prefer the load uses this approach with the relevant SQL executed from Python.  Alternatively, you may use a pure-Python approach.  Please add comments explaining your chosen approach in the `README.md` file.
 
 * **TRANSFORM**
 
   * You need to correct a known data quality issue where Location ID 161 and Location 237 have been accidentally swapped in the source system. *You need to renumber them*.
+  * We expect this transform to be executed from Python (using either Python+SQL or a pure Python approach).  Please add comments explaining your chosen approach in the `README.md` file.
 
 * **QUERY** 
 
@@ -76,7 +75,7 @@ Write code to perform the following tasks:
 
 * **WORKING AND RESULTS**
 
-  Save all Python code used for sharing with us.  Also save and share a copy of the query SQL in a file named `query.sql` and a copy of the results in a file named `results.txt `.
+  Save all Python code used for sharing with us.  Also save and share a copy of all SQL in a file named `exercise.sql` and a copy of the results in a file named `results.txt `.
 
 
 ## What we're looking for
@@ -89,7 +88,7 @@ Your solution should include:
 1. Instructions about your strategy and important decisions you made.  Include these in the `README.md` file.
 2. The `README.md` should also answer the following questions:
 * How did you ensure data quality?
-* What would need to change for the solution scale to work with a 1TiB dataset with new data arriving each day?
+* What (if anything) would need to change for the solution scale to work with a 1 TB dataset with 10 GB of new data arriving each day?
 3. Your submission should be a zip file containing your solution and the requested documentation, or a link to your GitHub repository.
 4. Your submission needs to contain everything we need to run the code (scripts etc.)
 
